@@ -44,6 +44,7 @@ html, body{
 	line-height:120px;
 	position:relative;
 	margin-top:80px;
+	padding:0px;
 }
 
 #page > p.loading:before{
