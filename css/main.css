@@ -1,4 +1,6 @@
 @import url(webfont.css);
+@import url(keyframes.css);
+
 
 html, body{
 	margin:0px;
@@ -30,6 +32,46 @@ html, body{
 	color:hsla(208, 26%, 26%, 1);
 }
 
+#page > p.loading{
+	background:hsla(208, 26%, 26%, 1);
+	display:inline-block;
+	width:120px;
+	height:120px;
+	border-radius:50%;
+	color:#FFF;
+	line-height:120px;
+	position:relative;
+	margin-top:80px;
+}
+
+#page > p.loading:before{
+	content:'';
+	position:absolute;
+	top:50%;
+	left:150%;
+	width:40px;
+	height:40px;
+	margin-top:-20px;
+	margin-left:-20px;
+	background:hsla(208, 26%, 26%, 0.5);
+	border-radius:50%;
+}
+
+#page > p.loading:after{
+	content:'';
+	position:absolute;
+	top:50%;
+	right:150%;
+	width:40px;
+	height:40px;
+	margin-top:-20px;
+	margin-right:-20px;
+	background:hsla(208, 26%, 26%, 0.5);
+	border-radius:50%;
+}
+
+
+
 .tile{
 	display:inline-block;
 	width:270px;
@@ -48,6 +90,18 @@ html, body{
 	display:none;
 	position:relative;
 	float:left;
+
+	-webkit-animation:pop 0.4s 1;
+	-moz-animation:pop 0.4s 1;
+	-ms-animation:pop 0.4s 1;
+	-o-animation:pop 0.4s 1;
+	animation:pop 0.4s 1;
+
+	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	-ms-animation-fill-mode:forwards;
+	-o-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
 }
 
 .tile .metadata.visible{

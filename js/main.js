@@ -2,6 +2,7 @@
 NodeList.prototype.forEach = Array.prototype.forEach;
 
 var page = document.querySelector("#page");
+var loading = page.querySelector(".loading");
 
 var moltin = new Moltin({publicId: 'DJtv6nj6aHFE7nqM4Bhu46IPOBI8D7fPmA9cN4cu'});
 moltin.Authenticate(function() {
@@ -9,6 +10,8 @@ moltin.Authenticate(function() {
 // Make your calls here
 
 	moltin.Product.List(null, function(products) {
+
+		page.removeChild(loading);
 		
 		products.forEach(function(product){
 
