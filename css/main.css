@@ -9,32 +9,25 @@ html, body{
 	font-family: "Karla", 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/*vertical align hack*/
-body:before{
-	content:'';
-	height:100%;
-	display:inline-block;
-	vertical-align:middle;
-}
-
-body:after{
-	content:'';
-	height:100%;
-	display:inline-block;
-	vertical-align:middle;
-}
-
 #page{
 	display:inline-block;
-	vertical-align:middle;
 	max-width:960px;
 	width:100%;
 }
 
 #page > h1{
+	margin:0px;
 	font-weight:bold;
 	font-size:32px;
 	margin-top:100px;
+	color:hsla(208, 26%, 26%, 1);
+}
+
+#page > p{
+	font-size:20px;
+	margin:40px 0px;
+	margin-top:20px;
+	color:hsla(208, 26%, 26%, 1);
 }
 
 .tile{
@@ -43,17 +36,42 @@ body:after{
 	vertical-align:top;
 	text-align:left;
 	padding:0px;
-	margin:5px;
-	background:#543a31;
-	border-radius:5px;
+	margin:10px;
+	background:hsla(208, 26%, 26%, 1);
 	box-shadow:0px 3px 10px rgba(0,0,0,0.1);
 	color:#FFF;
-	overflow:hidden;
 }
 
 .tile .metadata{
-	background:rgba(0,0,0,0.4);
-	padding:10px;
+	background:hsla(208, 26%, 16%, 1);
+	padding:30px 0px;
+	display:none;
+	position:relative;
+	float:left;
+}
+
+.tile .metadata.visible{
+	display:block;
+}
+
+.tile .metadata:before{
+	content:'';
+	position:absolute;
+	top:0px;
+	left:100%;
+	width:99999px;
+	height:100%;
+	background:hsla(208, 26%, 16%, 1);
+}
+
+.tile .metadata:after{
+	content:'';
+	position:absolute;
+	top:0px;
+	right:100%;
+	width:99999px;
+	height:100%;
+	background:hsla(208, 26%, 16%, 1);
 }
 
 .tile .metadata h1{
@@ -82,4 +100,6 @@ img{
 	width:250px;
 	margin:10px;
 	border-radius:3px;
+	float:left;
+	cursor:pointer;
 }

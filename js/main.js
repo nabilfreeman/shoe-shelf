@@ -1,3 +1,6 @@
+//steal the array prototype for NodeLists.
+NodeList.prototype.forEach = Array.prototype.forEach;
+
 var page = document.querySelector("#page");
 
 var moltin = new Moltin({publicId: 'DJtv6nj6aHFE7nqM4Bhu46IPOBI8D7fPmA9cN4cu'});
@@ -22,6 +25,18 @@ moltin.Authenticate(function() {
 				+ '</div>';
 
 			page.appendChild(tile);
+
+			tile.querySelector("img").addEventListener("click", function(e){
+
+				//if one of the information panels is already open, hide it. don't touch self.
+				page.querySelectorAll(".tile").forEach(function(other_tile){
+					if(other_tile !== tile){
+						other_tile.querySelector(".metadata").classList.remove("visible");
+					}
+				});
+
+				tile.querySelector(".metadata").classList.toggle("visible");
+			});
 
 		});
 
